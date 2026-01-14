@@ -1,0 +1,5 @@
+.git
+.venv
+.pre-commit-config.yaml
+tests/
+output/

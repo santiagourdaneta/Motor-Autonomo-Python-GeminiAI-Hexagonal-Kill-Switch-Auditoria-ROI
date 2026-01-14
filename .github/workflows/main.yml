@@ -1,0 +1,23 @@
+name: CI-CD-Lancer
+on: [push]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: SAST (Security Scan)
+        run: pip install bandit && bandit -r src/ # Escaneo de seguridad
+      - name: Run Tests
+        run: make test
+
+  deploy:
+    needs: quality
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Blue-Green Deployment Simulation
+        run: |
+          echo "🚀 Desplegando en ambiente GREEN (vNext)..."
+          echo "🧪 Corriendo Health Checks en GREEN..."
+          echo "🚦 Cambiando tráfico de BLUE a GREEN..."

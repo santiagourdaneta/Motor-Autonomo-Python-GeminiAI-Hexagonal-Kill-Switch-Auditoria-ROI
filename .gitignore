@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.env
+
+# Project specific
+output/
+input_legacy/*
+!input_legacy/.gitkeep
+*.log
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
