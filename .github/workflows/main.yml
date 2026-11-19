@@ -1,6 +1,9 @@
 name: CI-CD-Lancer
 on: [push]
 
+permissions:
+  contents: read
+
 jobs:
   quality:
     runs-on: ubuntu-latest
